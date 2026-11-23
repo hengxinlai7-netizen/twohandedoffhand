@@ -1,0 +1,67 @@
+﻿
+>   public net.minecraft.world.item.ItemStack m_6844_(net.minecraft.world.entity.EquipmentSlot);
+      Code:
+         0: new           #2909               // class org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable
+         3: dup
+         4: ldc_w         #2910               // String m_6844_
+         7: iconst_1
+         8: invokespecial #2911               // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable."<init>":(Ljava/lang/String;Z)V
+        11: astore_2
+        12: aload_0
+        13: aload_1
+        14: aload_2
+        15: invokespecial #2915               // Method handler$zza000$twohandedoffhand$exposeOffhand:(Lnet/minecraft/world/entity/EquipmentSlot;Lorg/spongepowered/asm/mixin/injection/callback/Callbac
+kInfoReturnable;)V
+        18: aload_2
+        19: invokevirtual #2918               // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.isCancelled:()Z
+        22: ifeq          33
+        25: aload_2
+        26: invokevirtual #2921               // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.getReturnValue:()Ljava/lang/Object;
+        29: checkcast     #230                // class net/minecraft/world/item/ItemStack
+        32: areturn
+        33: new           #2909               // class org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable
+        36: dup
+        37: ldc_w         #2910               // String m_6844_
+        40: iconst_1
+        41: invokespecial #2911               // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable."<init>":(Ljava/lang/String;Z)V
+        44: astore_3
+        45: aload_0
+        46: aload_1
+        47: aload_3
+        48: invokevirtual #2924               // Method handler$zzg000$getEquippedStack_Pre:(Lnet/minecraft/world/entity/EquipmentSlot;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoRetur
+nable;)V
+        51: aload_3
+        52: invokevirtual #2918               // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.isCancelled:()Z
+        55: ifeq          66
+        58: aload_3
+        59: invokevirtual #2921               // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.getReturnValue:()Ljava/lang/Object;
+        62: checkcast     #230                // class net/minecraft/world/item/ItemStack
+        65: areturn
+        66: aload_1
+        67: getstatic     #1829               // Field net/minecraft/world/entity/EquipmentSlot.MAINHAND:Lnet/minecraft/world/entity/EquipmentSlot;
+        70: if_acmpne     81
+        73: aload_0
+        74: getfield      #209                // Field f_36093_:Lnet/minecraft/world/entity/player/Inventory;
+        77: invokevirtual #1434               // Method net/minecraft/world/entity/player/Inventory.m_36056_:()Lnet/minecraft/world/item/ItemStack;
+        80: areturn
+        81: aload_1
+        82: getstatic     #1836               // Field net/minecraft/world/entity/EquipmentSlot.OFFHAND:Lnet/minecraft/world/entity/EquipmentSlot;
+        85: if_acmpne     103
+        88: aload_0
+        89: getfield      #209                // Field f_36093_:Lnet/minecraft/world/entity/player/Inventory;
+        92: getfield      #2928               // Field net/minecraft/world/entity/player/Inventory.f_35976_:Lnet/minecraft/core/NonNullList;
+        95: iconst_0
+        96: invokevirtual #2931               // Method net/minecraft/core/NonNullList.get:(I)Ljava/lang/Object;
+        99: checkcast     #230                // class net/minecraft/world/item/ItemStack
+       102: areturn
+       103: aload_1
+       104: invokevirtual #2935               // Method net/minecraft/world/entity/EquipmentSlot.m_20743_:()Lnet/minecraft/world/entity/EquipmentSlot$Type;
+       107: getstatic     #2939               // Field net/minecraft/world/entity/EquipmentSlot$Type.ARMOR:Lnet/minecraft/world/entity/EquipmentSlot$Type;
+       110: if_acmpne     133
+       113: aload_0
+       114: getfield      #209                // Field f_36093_:Lnet/minecraft/world/entity/player/Inventory;
+       117: getfield      #2942               // Field net/minecraft/world/entity/player/Inventory.f_35975_:Lnet/minecraft/core/NonNullList;
+       120: aload_1
+
+
+

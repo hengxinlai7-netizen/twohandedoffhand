@@ -1,0 +1,23 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "com.hengx.twohandedoffhand.mixin",
+    "compatibilityLevel": "JAVA_17",
+    "mixins": [
+        "PlayerItemBySlotMixin",
+        "LivingEntityEquipmentMixin",
+        "LivingEntityStartUseMixin",
+        "ServerGamePacketListenerImplMixin"
+    ],
+    "client": [
+        "client.ItemInHandRendererMixin",
+        "client.ItemInHandLayerMixin",
+        "client.PlayerRendererMixin",
+        "client.GuiMixin",
+        "client.MultiPlayerGameModeMixin"
+    ],
+    "server": [],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

@@ -1,0 +1,32 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="双手武器·副手放行"
+description='''Better Combat 手持双手武器时会用一个“伪空副手”同时干掉副手的渲染、使用和全部被动效果。
+本模组只保留前两者（隐藏显示、禁止使用），把其余效果（属性加成/装备事件/附魔/图腾等）全部放行。'''
+authors="${mod_authors}"
+
+[[dependencies.${mod_id}]]
+    modId="forge"
+    mandatory=true
+    versionRange="${forge_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="bettercombat"
+    mandatory=false
+    versionRange="[1.9.0,)"
+    ordering="AFTER"
+    side="BOTH"
