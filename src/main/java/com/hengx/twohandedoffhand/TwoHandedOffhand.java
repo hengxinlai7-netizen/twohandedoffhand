@@ -30,5 +30,6 @@ public final class TwoHandedOffhand {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public TwoHandedOffhand() {
+        SelfTest.register();
     }
 }
