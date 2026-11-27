@@ -78,9 +78,9 @@ public final class SelfTest {
         player.setItemInHand(InteractionHand.MAIN_HAND, twoHanded);
         player.getInventory().offhand.set(0, new ItemStack(Items.SHIELD));
 
-        // H1: 副手"看不到"(渲染/使用被封锁) —— getItemBySlot 应为空
+        // H1: 服务端必须读到真实副手(效果可读);客户端由 Better Combat 置空(不渲染)
         ItemStack viaSlot = player.getItemBySlot(EquipmentSlot.OFFHAND);
-        pass("H1", "双手状态下副手对外为空=" + describe(viaSlot), viaSlot.isEmpty());
+        pass("H1", "服务端副手可读=" + describe(viaSlot), viaSlot.is(Items.SHIELD));
 
         // H1b: 装备扫描重定向已接线(属性效果走真实副手,不经过 getItemBySlot)
         pass("H1b", "装备扫描重定向已接线", equipmentRedirectWired());
