@@ -78,9 +78,12 @@ public final class SelfTest {
         player.setItemInHand(InteractionHand.MAIN_HAND, twoHanded);
         player.getInventory().offhand.set(0, new ItemStack(Items.SHIELD));
 
-        // H1: 副手不应被 Better Combat 伪空
+        // H1: 副手"看不到"(渲染/使用被封锁) —— getItemBySlot 应为空
         ItemStack viaSlot = player.getItemBySlot(EquipmentSlot.OFFHAND);
-        pass("H1", "副手读取=" + describe(viaSlot), viaSlot.is(Items.SHIELD));
+        pass("H1", "双手状态下副手对外为空=" + describe(viaSlot), viaSlot.isEmpty());
+
+        // H1b: 装备扫描重定向已接线(属性效果走真实副手,不经过 getItemBySlot)
+        pass("H1b", "装备扫描重定向已接线", equipmentRedirectWired());
 
         // H2: 双手状态下副手不能开始使用
         player.stopUsingItem();
@@ -91,6 +94,7 @@ public final class SelfTest {
         // H3: 换成非双手物品后，副手使用恢复
         player.stopUsingItem();
         player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.PAPER));
+        player.getInventory().offhand.set(0, new ItemStack(Items.SHIELD));
         player.startUsingItem(InteractionHand.OFF_HAND);
         boolean allowed = player.isUsingItem() && player.getUsedItemHand() == InteractionHand.OFF_HAND;
         pass("H3", "非双手状态副手可用=" + allowed, allowed);
@@ -115,6 +119,20 @@ public final class SelfTest {
         }
         catch (Throwable t) {
             log(" 注册双手示例失败: " + t);
+            return false;
+        }
+    }
+
+    private static boolean equipmentRedirectWired() {
+        try (var in = SelfTest.class.getResourceAsStream(
+                "/com/hengx/twohandedoffhand/mixin/LivingEntityEquipmentMixin.class")) {
+            if (in == null) {
+                return false;
+            }
+            String text = new String(in.readAllBytes(), java.nio.charset.StandardCharsets.ISO_8859_1);
+            return text.contains("feedOffhandToEquipmentScan") && text.contains("m_21319_");
+        }
+        catch (Throwable t) {
             return false;
         }
     }

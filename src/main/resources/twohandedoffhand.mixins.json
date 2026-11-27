@@ -4,7 +4,6 @@
     "package": "com.hengx.twohandedoffhand.mixin",
     "compatibilityLevel": "JAVA_17",
     "mixins": [
-        "PlayerItemBySlotMixin",
         "LivingEntityEquipmentMixin",
         "LivingEntityStartUseMixin",
         "ServerGamePacketListenerImplMixin"
